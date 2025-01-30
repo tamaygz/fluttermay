@@ -7,6 +7,11 @@ extension ListExtensions<T> on List<T> {
   /// Gets the Last Element of a list or null if the list is empty
   T? lastOrNull() => isNotEmpty ? last : null;
 
-  T? testMethode() => isNotEmpty && length > 1 ? this[1] : null;
+
+  /// TAMAY
+  T? tamay() => isNotEmpty ? last : null;
+
+
+  // T? testMethode() => isNotEmpty && length > 1 ? this[1] : null;
 
 }
