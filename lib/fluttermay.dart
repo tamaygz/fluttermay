@@ -7,3 +7,7 @@ import 'package:intl/intl.dart';
 
 /// List Extensions
 part 'list_extensions.dart';
+
+
+/// widgets
+export 'widgets/icon_label_column.dart';
