@@ -7,4 +7,10 @@ class NotificationManager {
     fluttermayNotifier.publish(
         channel, NotificationEvent(type: EventType.state, message: message));
   }
+
+  // static void notify(String channel, String message,
+  //     {EventType type = EventType.state}) {
+  //   fluttermayNotifier.publish(
+  //       channel, NotificationEvent(type: type, message: message));
+  // }
 }

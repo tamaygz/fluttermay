@@ -15,16 +15,26 @@ class FluttermayNotifier
     };
   }
 
-  /// Unsubscribe from a specific channel
+  // /// Unsubscribe from a specific channel
+  // void unsubscribe(String channel, ListenerCallback callback) {
+  //   if (state.containsKey(channel)) {
+  //     state[channel]!.remove(callback);
+  //     if (state[channel]!.isEmpty) {
+  //       final newState = {...state};
+  //       newState.remove(channel);
+  //       state = newState;
+  //     } else {
+  //       state = {...state};
+  //     }
+  //   }
+  // }
+
+  // unsub
   void unsubscribe(String channel, ListenerCallback callback) {
     if (state.containsKey(channel)) {
       state[channel]!.remove(callback);
       if (state[channel]!.isEmpty) {
-        final newState = {...state};
-        newState.remove(channel);
-        state = newState;
-      } else {
-        state = {...state};
+        state.remove(channel); // Auto-remove empty channels
       }
     }
   }
