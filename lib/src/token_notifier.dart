@@ -1,4 +1,4 @@
-import '../fluttermay_notifier.dart';
+import 'fluttermay_notifier.dart';
 import '../models/notification_event.dart';
 
 class TokenNotifier {
