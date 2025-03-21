@@ -6,6 +6,7 @@ export 'src/server_notifier.dart';
 export 'src/token_notifier.dart';
 export 'src/notification_manager.dart';
 export 'models/notification_event.dart';
+export 'models/auth_token.dart';
 
 /// List Extensions
 part 'list_extensions.dart';
