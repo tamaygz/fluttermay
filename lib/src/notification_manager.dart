@@ -2,9 +2,9 @@ import 'fluttermay_notifier.dart';
 import '../models/notification_event.dart';
 
 class NotificationManager {
-  static void notifyStateChange(String message) {
-    fluttermayNotifier.notify(
-      NotificationEvent(type: EventType.state, message: message),
-    );
+  /// Send a message to a specific channel
+  static void notify(String channel, String message) {
+    fluttermayNotifier.publish(
+        channel, NotificationEvent(type: EventType.state, message: message));
   }
 }
