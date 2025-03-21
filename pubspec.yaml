@@ -1,22 +1,23 @@
 name: fluttermay
-description: "Tamays Flutter Extensions"
-version: 0.3.0
+description: "Tamay's Flutter Extensions"
+version: 0.4.0
 homepage: https://github.com/tamaygz/fluttermay
 
 environment:
-  sdk: ^3.5.2
+  sdk: ">=3.5.2 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
-  intl: ^0.19.0
   flutter:
     sdk: flutter
+  intl: ^0.19.0
   dio: ^5.8.0+1
   state_notifier: ^1.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
+  flutter_lints: ^2.0.0
 
 flutter:
+  uses-material-design: true
