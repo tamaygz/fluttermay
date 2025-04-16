@@ -18,7 +18,7 @@ class FluttermayNotifier
   // /// Unsubscribe from a specific channel
   // void unsubscribe(String channel, ListenerCallback callback) {
   //   if (state.containsKey(channel)) {
-  //     state[channel]!.remove(callback);
+  //     state[channel]!.remove(callback);\
   //     if (state[channel]!.isEmpty) {
   //       final newState = {...state};
   //       newState.remove(channel);
@@ -41,6 +41,7 @@ class FluttermayNotifier
 
   /// Publish a notification to a specific channel
   void publish(String channel, NotificationEvent event) {
+    print('Debug: Sending message on channel $channel with event $event');
     if (state.containsKey(channel)) {
       for (var callback in state[channel]!) {
         callback(event);
