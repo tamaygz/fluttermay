@@ -3,7 +3,7 @@ import '../models/notification_event.dart';
 
 class TokenNotifier {
   static void updateTokenExpiration(DateTime expiration) {
-    fluttermayNotifier.publish(
+    fluttermayNotifier.publishOnChannel(
         "token_expiry",
         NotificationEvent(
             type: EventType.token, message: "Token expires at: $expiration"));
