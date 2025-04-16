@@ -51,7 +51,7 @@ class FluttermayNotifier
 
   /// Publish a notification based on the event type as the channel
   void publish(NotificationEvent event) {
-    final channel = "FM_${event.type.toString().toUpperCase()}";
+    final channel = "FM_${event.type.name.toUpperCase()}";
     publishOnChannel(channel, event);
   }
 }
