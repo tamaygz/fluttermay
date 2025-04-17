@@ -15,37 +15,27 @@ class FluttermayNotifier
     };
   }
 
-  // /// Unsubscribe from a specific channel
-  // void unsubscribe(String channel, ListenerCallback callback) {
-  //   if (state.containsKey(channel)) {
-  //     state[channel]!.remove(callback);\
-  //     if (state[channel]!.isEmpty) {
-  //       final newState = {...state};
-  //       newState.remove(channel);
-  //       state = newState;
-  //     } else {
-  //       state = {...state};
-  //     }
-  //   }
-  // }
-
-  // unsub
+  /// Unsubscribe from a specific channel/topic
   void unsubscribe(String channel, ListenerCallback callback) {
     if (state.containsKey(channel)) {
-      state[channel]!.remove(callback);
-      if (state[channel]!.isEmpty) {
-        state.remove(channel); // Auto-remove empty channels
-      }
+      final updatedCallbacks = List.of(state[channel]!);
+      updatedCallbacks.remove(callback);
+
+      state = {
+        ...state,
+        if (updatedCallbacks.isNotEmpty) channel: updatedCallbacks,
+      };
     }
   }
 
   /// Publish a notification to a specific channel
   void publishOnChannel(String channel, NotificationEvent event) {
-    print('Debug: Sending message on channel $channel with event $event');
-    if (state.containsKey(channel)) {
-      for (var callback in state[channel]!) {
-        callback(event);
-      }
+    if (!state.containsKey(channel)) {
+      print('Warning: No listeners subscribed to channel $channel');
+      return;
+    }
+    for (var callback in state[channel]!) {
+      callback(event);
     }
   }
 
@@ -53,6 +43,11 @@ class FluttermayNotifier
   void publish(NotificationEvent event) {
     final channel = "FM_${event.type.name.toUpperCase()}";
     publishOnChannel(channel, event);
+  }
+
+  /// Clear all subscriptions
+  void clearAllSubscriptions() {
+    state = {};
   }
 }
 
