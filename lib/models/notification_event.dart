@@ -42,3 +42,20 @@ class JWTExpiringEvent extends NotificationEvent {
     return 'JWTExpiringEvent(token: $message, expirationTime: $expirationTime, sender: ${sender ?? "unknown"}, sent_at: $timestamp)';
   }
 }
+
+/// Represents an event for a new JWT token with its expiration date.
+class JWTNewTokenEvent extends NotificationEvent {
+  final String token;
+  final DateTime expirationDate;
+
+  JWTNewTokenEvent({
+    required this.token,
+    required this.expirationDate,
+    String? sender, // Optional sender for JWT events
+  }) : super(type: EventType.token, message: token, sender: sender);
+
+  @override
+  String toString() {
+    return 'JWTNewTokenEvent(token: $token, expirationDate: $expirationDate, sender: ${sender ?? "unknown"}, sent_at: $timestamp)';
+  }
+}
