@@ -1,4 +1,4 @@
-enum EventType { state, server, token }
+enum EventType { session, state, server, token }
 
 extension EventTypeExtension on EventType {
   String toUpperCaseString() {
