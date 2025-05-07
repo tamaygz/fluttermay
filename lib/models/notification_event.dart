@@ -27,6 +27,22 @@ class NotificationEvent {
   }
 }
 
+/// Represents a session action event with an action and a message.
+class SessionActionEvent extends NotificationEvent {
+  final String action;
+
+  SessionActionEvent({
+    required this.action,
+    required String message,
+    String? sender, // Optional sender for session events
+  }) : super(type: EventType.session, message: message, sender: sender);
+
+  @override
+  String toString() {
+    return 'SessionActionEvent(action: $action, message: $message, sender: ${sender ?? "unknown"}, sent_at: $timestamp)';
+  }
+}
+
 /// Represents a JWT expiration event with an expiration time.
 class JWTExpiringEvent extends NotificationEvent {
   final DateTime expirationTime;
